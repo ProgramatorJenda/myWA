@@ -1,0 +1,6 @@
+## Interface: 110002
+## Title: Learning Weak Auras
+## Notes: Look for active buffs?
+## Version: 0.0.1
+
+checker.lua
