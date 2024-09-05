@@ -1,5 +1,5 @@
 --Plan for this project:
---Create a window that shows checkboxes for each important aura that you should have active
+--Create a window that shows checkboxes for each important aura that you want to track
 --on each class
 --Ticking a checkbox adds the buff/aura to the desiredBuffs table, that is being checked
 --Starting with Priest - example of important auras, Inner light/Shadow, PW:Fortitude
@@ -7,8 +7,10 @@
 --Create a Frame for Event listening
 local frame = CreateFrame("Frame")
 local buffFrame
-local desiredBuffs = { "Renew", "Inner Light"}
+local desiredBuffs = { "Renew", "Inner Light",}
 
+
+--TODO: Handle stacks on buffs? Maybe show string on top of the texture if the aura has stacks?
 local function CheckForBuff(desiredBuffs)
     local iconTexture = nil
     local buffFound = false
@@ -29,13 +31,14 @@ local function CheckForBuff(desiredBuffs)
     end
 
     -- Debug
-    -- for x = 1, #missingAuras do
-    --     print(missingAuras[x])
-    -- end
+    for x = 1, #missingAuras do
+        print(missingAuras[x])
+    end
 
     -- Now works the other way than whats intented, because its easier to work with
     --TODO: need to make a list or a row of frame icons (textures) that will be next to each other instead of on top of each other
     -- and wrap it around in a function that takes the returned table from CheckForBuff function
+    -- For now before I try to make then textures movable
     if buffFound then
         if not buffFrame then
             buffFrame = CreateFrame("Frame", "BuffAlertFrame", UIParent)

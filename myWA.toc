@@ -3,4 +3,6 @@
 ## Notes: Look for active buffs?
 ## Version: 0.0.1
 
+FrameHandler.lua
 checker.lua
+init.lua
