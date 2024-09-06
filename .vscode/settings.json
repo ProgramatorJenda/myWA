@@ -16,6 +16,7 @@
     ],
     "Lua.diagnostics.globals": [
         "ActionButton_ShowOverlayGlow",
-        "ActionButton_HideOverlayGlow"
+        "ActionButton_HideOverlayGlow",
+        "table"
     ]
 }
