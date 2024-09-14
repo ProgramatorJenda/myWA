@@ -6,8 +6,6 @@
 
 
 local buffFrame
--- local DesiredBuffs = { "Renew", "Inner Light",}
-
 
 --TODO: Handle stacks on buffs? Maybe show string on top of the texture if the aura has stacks?
 local function CheckForBuff(DesiredBuffs)
@@ -41,7 +39,7 @@ local function CheckForBuff(DesiredBuffs)
     if buffFound then
         if not buffFrame then
             buffFrame = CreateFrame("Frame", "BuffAlertFrame", UIParent)
-            buffFrame:SetSize(30, 30)
+            buffFrame:SetSize(90, 90)
             buffFrame:SetPoint("CENTER")
 
             buffFrame.icon = buffFrame:CreateTexture(nil, "OVERLAY")

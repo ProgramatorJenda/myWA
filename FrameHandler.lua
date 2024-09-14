@@ -134,6 +134,7 @@ function CreateMainWindow()
     -- Create a list of labels for checkboxes that will be created by a function with the labels as an argument
     local checkbox1 = CreateCheckbox(MainFrame, "Renew", 20, -120)
     local checkbox2 = CreateCheckbox(MainFrame, "Desperate Prayer", 20, -100)
+    local checkbox3 = CreateCheckbox(MainFrame, "Precognition", 20, -80)
     CreateClassDropdown()
     return MainFrame
 end
