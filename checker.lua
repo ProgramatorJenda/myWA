@@ -4,6 +4,8 @@
 --Ticking a checkbox adds the buff/aura to the DesiredBuffs table, that is being checked
 --Starting with Priest - example of important auras, Inner light/Shadow, PW:Fortitude
 
+--TODO: Saved variables of the frame positions and sizes,
+-- save the state of the checkboxes for desired buffs,
 
 local buffFrame
 
@@ -36,6 +38,7 @@ local function CheckForBuff(DesiredBuffs)
     --TODO: need to make a list or a row of frame icons (textures) that will be next to each other instead of on top of each other
     -- and wrap it around in a function that takes the returned table from CheckForBuff function
     -- For now before I try to make then textures movable
+    -- or just make a frame for each buff and put them side by side, or make them movable and remember their state and position
     if buffFound then
         if not buffFrame then
             buffFrame = CreateFrame("Frame", "BuffAlertFrame", UIParent)

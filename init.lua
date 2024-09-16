@@ -1,6 +1,6 @@
 -- Handles slash commands
 SLASH_MWA1 = '/mwa'
---TODO: Not Create, ToggleMainWindow
+
 SlashCmdList['MWA'] = function(msg)
     if msg == "" then
         ToggleMainWindow()

@@ -1,9 +1,8 @@
 -- This file handles windows rendering for the Addon
-
 local MainWindow
 DesiredBuffs = {}
 
-
+--TODO: Add exit button to the main window, now its only toggleable
 function ToggleMainWindow()
     if not MainWindow then
         MainWindow = CreateMainWindow()
@@ -115,6 +114,14 @@ function CreateMainWindow()
         insets = {left = 8, right = 8, top = 8, bottom = 8 }
     })
 
+    local closeButton = CreateFrame("Button", nil, MainHeader, "UIPanelCloseButton")
+    closeButton:SetPoint("TOPRIGHT", MainHeader, "TOPRIGHT", -5, -5)
+
+    -- Set the OnClick function to hide the frame
+    closeButton:SetScript("OnClick", function()
+        MainFrame:Hide()
+    end)
+
     local titleText = MainHeader:CreateFontString(nil, "OVERLAY", "GameFontNormal")
     titleText:SetPoint("CENTER", MainHeader, "CENTER", 0, 0)
     titleText:SetText("My WeakAuras")
@@ -136,5 +143,6 @@ function CreateMainWindow()
     local checkbox2 = CreateCheckbox(MainFrame, "Desperate Prayer", 20, -100)
     local checkbox3 = CreateCheckbox(MainFrame, "Precognition", 20, -80)
     CreateClassDropdown()
+    
     return MainFrame
 end
