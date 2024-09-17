@@ -17,6 +17,8 @@
     "Lua.diagnostics.globals": [
         "ActionButton_ShowOverlayGlow",
         "ActionButton_HideOverlayGlow",
-        "table"
+        "table",
+        "CreateFrame",
+        "C_UnitAuras"
     ]
 }
