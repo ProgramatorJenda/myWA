@@ -10,6 +10,7 @@ Also need to figure out the structure of the code
 ~~1. Figure out a way to chose and show Auras to track~~
 
 2. Track debuffs
+   
 ~~3. Create a UI with a menu that updates the tracked Auras~~
 
 4. Get players current class and show buffs menu based on that
