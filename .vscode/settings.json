@@ -18,7 +18,5 @@
         "ActionButton_ShowOverlayGlow",
         "ActionButton_HideOverlayGlow",
         "table",
-        "CreateFrame",
-        "C_UnitAuras"
     ]
 }
