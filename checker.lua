@@ -9,7 +9,6 @@
 
 local buffFrame
 
---TODO: Handle stacks on buffs? Maybe show string on top of the texture if the aura has stacks?
 local function CheckForBuff(DesiredBuffs)
     local iconTexture = nil
     local buffFound = false
@@ -41,6 +40,8 @@ local function CheckForBuff(DesiredBuffs)
     -- or just make a frame for each buff and put them side by side, or make them movable and remember their state and position
     if buffFound then
         if not buffFrame then
+            -- This has to be completely remade for each buff so we can track multiple buffs at the same time
+            -- a lot of work, dont know why it didnt come to my mind before i started... maybe should brainstorm more :)
             buffFrame = CreateFrame("Frame", "BuffAlertFrame", UIParent)
             buffFrame:SetSize(60, 60)
             buffFrame:SetPoint("CENTER")
