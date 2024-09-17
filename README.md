@@ -7,9 +7,9 @@ I have a few goals that I wanna learn and make for this project
 
 Also need to figure out the structure of the code
 
-1. Figure out a way to chose and show Auras to track
+~~1. Figure out a way to chose and show Auras to track~~
     -  Track debuffs later on
-2. Create a UI with a menu that updates the tracked Auras
+~~2. Create a UI with a menu that updates the tracked Auras~~
     - Get players current class and show buffs menu based on that
     - Different menu for debuffs from all classes (good for PVP)
 3. Make textures movable around the screen and save its position, so it doesnt reset on each reload
