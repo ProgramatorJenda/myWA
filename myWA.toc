@@ -2,6 +2,7 @@
 ## Title: Learning Weak Auras
 ## Notes: Look for active buffs?
 ## Version: 0.0.1
+## SavedVariables: DesiredBuffs
 
 FrameHandler.lua
 checker.lua

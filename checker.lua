@@ -42,7 +42,7 @@ local function CheckForBuff(DesiredBuffs)
     if buffFound then
         if not buffFrame then
             buffFrame = CreateFrame("Frame", "BuffAlertFrame", UIParent)
-            buffFrame:SetSize(90, 90)
+            buffFrame:SetSize(60, 60)
             buffFrame:SetPoint("CENTER")
 
             buffFrame.icon = buffFrame:CreateTexture(nil, "OVERLAY")
@@ -59,6 +59,14 @@ local function CheckForBuff(DesiredBuffs)
             -- buffFrame:SetMovable(true)
             -- buffFrame:EnableMouse(true)
             -- buffFrame:RegisterForDrag("LeftButton")
+            if aura.charges > 2 then
+                -- Add string of charges to the buff icon
+                buffFrame.text = buffFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+                buffFrame.text:SetPoint("CENTER", buffFrame, "RIGHT", 0, 0)
+                buffFrame.text:SetText(aura.charges)
+                buffFrame.text:SetTextColor(255, 255, 255)
+                buffFrame.text:SetSize(20, 20)
+            end
         end
         buffFrame.icon:SetTexture(iconTexture)
         ActionButton_ShowOverlayGlow(buffFrame)
