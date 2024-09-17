@@ -115,7 +115,7 @@ function CreateMainWindow()
     })
 
     local closeButton = CreateFrame("Button", nil, MainHeader, "UIPanelCloseButton")
-    closeButton:SetPoint("TOPRIGHT", MainHeader, "TOPRIGHT", -5, -5)
+    closeButton:SetPoint("TOPRIGHT", MainHeader, "TOPRIGHT")
 
     -- Set the OnClick function to hide the frame
     closeButton:SetScript("OnClick", function()
