@@ -1,8 +1,5 @@
---Plan for this project:
---Create a window that shows checkboxes for each important aura that you want to track
---on each class
---Ticking a checkbox adds the buff/aura to the DesiredBuffs table, that is being checked
---Starting with Priest - example of important auras, Inner light/Shadow, PW:Fortitude
+--Needs a complete rewrite, to handle generation for many frames.. now it only works for a single one
+--since they are generated on top of each other
 
 --TODO: Saved variables of the frame positions and sizes,
 -- save the state of the checkboxes for desired buffs,
@@ -23,7 +20,7 @@ local function CheckForBuff(DesiredBuffs)
                 buffFound = true
                 table.insert(missingAuras, aura.name)
                 iconTexture = aura.icon
-                break
+                -- break
             end
         end
     end
@@ -49,26 +46,16 @@ local function CheckForBuff(DesiredBuffs)
             buffFrame.icon = buffFrame:CreateTexture(nil, "OVERLAY")
             buffFrame.icon:SetAllPoints()
 
-            --Will use something like this later when each buff has its own frame
-            -- buffFrame:SetScript("OnMouseDown", function()
-            --     buffFrame:StartMoving()
-            -- end)
-            -- buffFrame:SetScript("OnMouseUp", function()
-            --     buffFrame:StopMovingOrSizing()
-            -- end)
-
-            -- buffFrame:SetMovable(true)
-            -- buffFrame:EnableMouse(true)
-            -- buffFrame:RegisterForDrag("LeftButton")
             if aura.charges > 2 then
                 -- Add string of charges to the buff icon
                 buffFrame.text = buffFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
                 buffFrame.text:SetPoint("CENTER", buffFrame, "RIGHT", 0, 0)
-                buffFrame.text:SetText(aura.charges)
+                buffFrame.text:SetText(tostring(aura.charges))
                 buffFrame.text:SetTextColor(255, 255, 255)
                 buffFrame.text:SetSize(20, 20)
             end
         end
+        
         buffFrame.icon:SetTexture(iconTexture)
         ActionButton_ShowOverlayGlow(buffFrame)
         buffFrame:Show()

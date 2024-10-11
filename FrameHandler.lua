@@ -2,7 +2,6 @@
 local MainWindow
 DesiredBuffs = {}
 
---TODO: Add exit button to the main window, now its only toggleable
 function ToggleMainWindow()
     if not MainWindow then
         MainWindow = CreateMainWindow()
