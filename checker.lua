@@ -3,7 +3,7 @@
 
 --TODO: Saved variables of the frame positions and sizes,
 -- save the state of the checkboxes for desired buffs,
-
+ItsUp = ItsUp or {}
 local buffFrame
 
 local function CheckForBuff(DesiredBuffs)
@@ -18,6 +18,7 @@ local function CheckForBuff(DesiredBuffs)
 
             if aura and aura.name == DesiredBuffs[i] then
                 buffFound = true
+                --missingAuras? dumb name
                 table.insert(missingAuras, aura.name)
                 iconTexture = aura.icon
                 -- break

@@ -4,6 +4,6 @@
 ## Version: 0.0.1
 ## SavedVariables: DesiredBuffs
 
-FrameHandler.lua
+window.lua
 checker.lua
 init.lua

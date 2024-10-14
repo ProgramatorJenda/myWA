@@ -1,4 +1,5 @@
 -- This file handles windows rendering for the Addon
+ItsUp = ItsUp or {}
 local MainWindow
 DesiredBuffs = {}
 

@@ -18,3 +18,5 @@ Also need to figure out the structure of the code
 6. Make textures movable around the screen and save its position, so it doesnt reset on each reload
 7. Make this usable for multiple if not all classes
 8. Finish this
+
+14.10.2024 - Scrap the steps, I need to rewrite everything I created because I am starting to understand lua
