@@ -1,8 +1,9 @@
 ItsUp = ItsUp or {}
 
+ItsUp.ActiveBuffs = {}
+
+--Update table of Active auras on the player
 function ItsUp.UpdateActiveBuffs(DesiredBuffs)
-    local ActiveBuffs = {}
-    local buffTexture = nil
     local aura = nil
 
     for i = 1, #DesiredBuffs do
@@ -10,11 +11,11 @@ function ItsUp.UpdateActiveBuffs(DesiredBuffs)
             aura = C_UnitAuras.GetBuffDataByIndex("player", j)
 
             if aura and aura.name == DesiredBuffs[i] then
-                table.insert(ActiveBuffs, aura.name)
+                table.insert(ItsUp.ActiveBuffs, aura.name)
                 break
             end
         end
     end
 
-    return ActiveBuffs
+    return ItsUp.ActiveBuffs
 end

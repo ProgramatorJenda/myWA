@@ -3,6 +3,7 @@
 
 --TODO: Saved variables of the frame positions and sizes,
 -- save the state of the checkboxes for desired buffs,
+
 ItsUp = ItsUp or {}
 local buffFrame
 
@@ -18,7 +19,7 @@ local function CheckForBuff(DesiredBuffs)
 
             if aura and aura.name == DesiredBuffs[i] then
                 buffFound = true
-                --missingAuras? dumb name
+                --missingAuras? cool var name
                 table.insert(missingAuras, aura.name)
                 iconTexture = aura.icon
                 -- break
@@ -72,7 +73,7 @@ end
 local frame = CreateFrame("Frame")
 frame:SetScript("OnEvent", function (self, event, arg1)
     if (event == "UNIT_AURA" and arg1 == "player") then
-        CheckForBuff(DesiredBuffs)
+        CheckForBuff(ItsUp.DesiredBuffs)
     end
 end)
 
