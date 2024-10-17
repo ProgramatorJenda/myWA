@@ -29,10 +29,29 @@ local function createDesiredAuraFrames(DesiredBuffs)
     end
 end
 
+-- Clear all possible frame scripts
+local function ClearScripts(frame)
+    local scripts = {
+        "OnEvent", "OnClick", "OnUpdate", "OnEnter", "OnLeave", 
+        "OnShow", "OnHide", "OnMouseDown", "OnMouseUp", 
+        "OnKeyDown", "OnKeyUp", "OnMouseWheel"
+    }
+    
+    for _, script in pairs(scripts) do
+        frame:SetScript(script, nil)
+    end
+end
 
-local function cleanUpRemovedFrames()
-
-
+--[[
+Clean up frame after a buff has been deselected from being tracked
+Uses ClearScripts function
+]]
+local function cleanUpRemovedFrames(RemovedFrames)
+    for _,frame in pairs(RemovedFrames) do
+        frame:UnregisterAllEvents()
+        ClearScripts(frame)
+        frame:Hide()
+    end
 end
 
 
