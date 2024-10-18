@@ -9,3 +9,5 @@ No order just brainstorming
 5. Add Glow texture on frames when active
 6. Release addon
 7. Add settings for frames alpha and size
+8. GUI creation functions
+9. New Main window gui

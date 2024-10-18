@@ -2,6 +2,7 @@ ItsUp = ItsUp or {}
 ItsUp.BuffFrames = ItsUp.BuffFrames or {}
 ItsUp.SavedPositions = ItsUp.SavedPositions or {}
 
+--Idk whats the plan for this yet
 function ItsUp.enableEditMode()
     
 end
@@ -86,6 +87,10 @@ local function disableFrameMovement(BuffFrames)
     end
 end
 
+--[[
+Gets called on every save
+Loads, creates, cleans up frames
+]]
 function ItsUp.UpdateAuraFrames()
 
 
