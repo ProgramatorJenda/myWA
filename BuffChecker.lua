@@ -1,9 +1,9 @@
-ItsUp = ItsUp or {}
+IU = IU or {}
 
-ItsUp.ActiveBuffs = {}
+IU.ActiveBuffs = {}
 
 --Update table of Active auras on the player
-function ItsUp.UpdateActiveBuffs(DesiredBuffs)
+function IU.UpdateActiveBuffs(DesiredBuffs)
     local aura = nil
 
     for i = 1, #DesiredBuffs do
@@ -11,11 +11,24 @@ function ItsUp.UpdateActiveBuffs(DesiredBuffs)
             aura = C_UnitAuras.GetBuffDataByIndex("player", j)
 
             if aura and aura.name == DesiredBuffs[i] then
-                table.insert(ItsUp.ActiveBuffs, aura.name)
+                table.insert(IU.ActiveBuffs, aura.name)
                 break
             end
         end
     end
 
-    return ItsUp.ActiveBuffs
+    return IU.ActiveBuffs
+end
+
+function IU.updateDesiredTable(checkbox, label)
+    if checkbox.checked then
+        table.insert(IU.DesiredBuffs, label)
+    else
+        for i, v in ipairs(IU.DesiredBuffs) do
+            if v == label then
+                table.remove(IU.DesiredBuffs, i)
+                break
+            end
+        end
+    end
 end

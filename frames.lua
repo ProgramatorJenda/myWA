@@ -1,9 +1,9 @@
-ItsUp = ItsUp or {}
-ItsUp.BuffFrames = ItsUp.BuffFrames or {}
-ItsUp.SavedPositions = ItsUp.SavedPositions or {}
+IU = IU or {}
+IU.BuffFrames = IU.BuffFrames or {}
+IU.SavedPositions = IU.SavedPositions or {}
 
 --Idk whats the plan for this yet
-function ItsUp.enableEditMode()
+function IU.enableEditMode()
     
 end
 

@@ -1,7 +1,7 @@
 -- Started this project on 31.08.2024
 -- Have no idea what most of lua is, but here we go :)
 
-ItsUp = ItsUp or {}
+IU = IU or {}
 
 -- Handles slash commands
 SLASH_MWA1 = '/mwa'

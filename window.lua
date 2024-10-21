@@ -1,8 +1,8 @@
 -- This file handles windows rendering for the Addon
 
-ItsUp = ItsUp or {}
+IU = IU or {}
 local MainWindow
-ItsUp.DesiredBuffs = {}
+IU.DesiredBuffs = {}
 
 function ToggleMainWindow()
     if not MainWindow then
@@ -22,11 +22,11 @@ local function CreateCheckbox(parent, label, x, y)
 
     checkbox:SetScript("OnClick", function()
         if checkbox.checked then
-            table.insert(ItsUp.DesiredBuffs, label)
+            table.insert(IU.DesiredBuffs, label)
         else
-            for i, v in ipairs(ItsUp.DesiredBuffs) do
+            for i, v in ipairs(IU.DesiredBuffs) do
                 if v == label then
-                    table.remove(ItsUp.DesiredBuffs, i)
+                    table.remove(IU.DesiredBuffs, i)
                     break
                 end
             end
@@ -40,12 +40,12 @@ end
 function UpdateTable(checkbox, label)
     if checkbox:GetChecked() then
         -- Add label to the table if checkbox is checked
-        table.insert(ItsUp.DesiredBuffs, label)
+        table.insert(IU.DesiredBuffs, label)
     else
         -- Remove label from the table if checkbox is unchecked
-        for i, v in ipairs(ItsUp.DesiredBuffs) do
+        for i, v in ipairs(IU.DesiredBuffs) do
             if v == label then
-                table.remove(ItsUp.DesiredBuffs, i)
+                table.remove(IU.DesiredBuffs, i)
                 break
             end
         end
