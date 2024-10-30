@@ -1,9 +1,11 @@
-## Interface: 110002
-## Title: Learning Weak Auras
-## Notes: Look for active buffs?
-## Version: 0.0.1
+## Interface: 110005
+## Title: It's Up!
+## Notes: Tracks active buffs
+## Version: 0.0.7
 ## SavedVariables: DesiredBuffs
 
-window.lua
-checker.lua
+data.lua
+frames.lua
+BuffChecker.lua
+gui.lua
 init.lua
