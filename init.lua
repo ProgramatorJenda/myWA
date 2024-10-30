@@ -4,11 +4,11 @@
 IU = IU or {}
 
 -- Handles slash commands
-SLASH_MWA1 = '/mwa'
+SLASH_MWA1 = '/IU'
 
-SlashCmdList['MWA'] = function(msg)
+SlashCmdList['IU'] = function(msg)
     if msg == "" then
-        ToggleMainWindow()
+        IU.ToggleMainWindow()
     else
         print("Unknown command, please try again")
     end

@@ -20,6 +20,10 @@ function IU.UpdateActiveBuffs(DesiredBuffs)
     return IU.ActiveBuffs
 end
 
+--[[
+TODO: change parameter to take in a table of all checked checkboxes then update the table with checked ones
+
+]]
 function IU.updateDesiredTable(checkbox, label)
     if checkbox.checked then
         table.insert(IU.DesiredBuffs, label)
