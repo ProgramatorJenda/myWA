@@ -58,6 +58,10 @@ function IU.InitializeMainWindow()
         insets = {left = 8, right = 8, top = 8, bottom = 8 }
     })
 
+    local titleText = MainHeader:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    titleText:SetPoint("CENTER", MainHeader, "CENTER", 0, 0)
+    titleText:SetText("Its Up!")
+
     local closeButton = CreateFrame("Button", nil, MainWindow, "UIPanelCloseButton")
     closeButton:SetPoint("TOPRIGHT", MainWindow, "TOPRIGHT")
 
