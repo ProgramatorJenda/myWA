@@ -4,6 +4,31 @@ ItsUp = nil
 -- table of created checkboxes, for future references
 local checkBoxList = {}
 
+-- Create CheckBox function
+local function CreateSpellCheckbox(label, parent, spell)
+        local checkBox = CreateFrame("CheckButton", nil, parent, "InterfaceOptionsCheckButtonTemplate")
+        checkBox.SetText(label)
+        checkBox.spell = spell
+        table.insert(checkBoxList, {checkbox = checkBox, label = label})
+
+        checkBox:SetScript("OnClick", function(self)
+            ItsUp.updateDesiredTable(checkBox, label)
+        end)
+end
+
+local function CreatePriestSpellCheckbox(parent)
+    local priestSpells = ItsUp.data["Priest"]
+    local startX, startY = 50, -50  -- Customize starting position for checkboxes
+
+    for i, spell in ipairs(priestSpells) do
+        -- Create a checkbox for each spell using the existing function
+        CreateSpellCheckbox(spell.name, parent, spell.id)
+
+        -- Position each checkbox with an offset for vertical stacking
+        local offsetY = startY - (i * 30)  -- Adjust this value as needed
+    end
+end
+
 function IU.InitializeMainWindow()
 
     -- Create Main Window frame
@@ -19,8 +44,31 @@ function IU.InitializeMainWindow()
         insets = {left = 8, right = 8, top = 8, bottom = 8 }
     })
 
-    -- Create checkboxes for each possible aura
-    
+    local MainHeader = CreateFrame("Frame", nil, MainWindow, "BackdropTemplate")
+    MainHeader:SetHeight(20)
+    MainHeader:SetPoint("TOPLEFT", MainWindow, "TOPLEFT", 0, 12)
+    MainHeader:SetPoint("TOPRIGHT", MainWindow, "TOPRIGHT", 0, 12)
+    MainHeader:SetBackdrop({
+        -- Dont know which file to use for the header now
+        -- bgFile = "BlizzardInterfaceArt\\Interface\\DialogFrame\\UI-DialogBox-Header",
+        edgeFile= nil,
+        tile = true,
+        tileSize = 32,
+        edgeSize = 32,
+        insets = {left = 8, right = 8, top = 8, bottom = 8 }
+    })
+
+    local closeButton = CreateFrame("Button", nil, MainWindow, "UIPanelCloseButton")
+    closeButton:SetPoint("TOPRIGHT", MainWindow, "TOPRIGHT")
+
+    -- Set the OnClick function to hide the frame
+    closeButton:SetScript("OnClick", function()
+        MainWindow:Hide()
+    end)
+
+    -- Create checkboxes for priestSpells just for now
+    CreatePriestSpellCheckbox(MainWindow)
+
 
     MainWindow:Hide()
 end
@@ -31,18 +79,6 @@ function ToggleMainWindow()
     end
 
     ItsUp:SetShown(not ItsUp:IsShown())
-end
-
--- Create CheckBox function
-local function CreateSpellCheckbox(label, parent, spell)
-    local checkBox = CreateFrame("CheckButton", nil, parent, "InterfaceOptionsCheckButtonTemplate")
-    checkBox.SetText(label)
-    checkBox.spell = spell
-    table.insert(checkBoxList, {checkbox = checkBox, label = label})
-
-    checkBox:SetScript("OnClick", function(self)
-        ItsUp.updateDesiredTable(checkBox, label)
-    end)
 end
 
 -- Not sure how to approach this yet vvv
