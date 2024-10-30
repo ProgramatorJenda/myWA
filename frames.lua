@@ -26,7 +26,7 @@ local function createDesiredAuraFrames(DesiredBuffs)
         buffFrame:SetPoint("CENTER", UIParent, "CENTER", (i - 1) * 50, 0)
 
         buffFrame:Hide()
-        ItsUp.BuffFrames[buffName] = buffFrame
+        IU.BuffFrames[buffName] = buffFrame
     end
 end
 
@@ -83,15 +83,26 @@ local function disableFrameMovement(BuffFrames)
         frame:SetScript("OnDragStop", nil)
 
         local point, _, _, x, y = frame:GetPoint()
-        ItsUp.FramePositions[frame:GetName()] = {point, x, y}
+        IU.FramePositions[frame:GetName()] = {point, x, y}
     end
 end
+
+function IU.showActiveFrames(ActiveBuffs)
+    for buffName, frame in pairs(IU.BuffFrames) do
+        if ActiveBuffs[buffName] then  -- Check if buffName exists in ActiveBuffs
+            frame:Show()
+        else
+            frame:Hide()
+        end
+    end
+end
+
 
 --[[
 Gets called on every save
 Loads, creates, cleans up frames
 ]]
-function ItsUp.UpdateAuraFrames()
-
+function IU.loadAuraFrames()
+    createDesiredAuraFrames(IU.DesiredBuffs)
 
 end
