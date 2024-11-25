@@ -17,9 +17,9 @@ end
 local eventFrame = CreateFrame("Frame")
 eventFrame:SetScript("OnEvent", function(self, event, addonName)
     if event == "ADDON_LOADED" and addonName == "It's Up!" then
-        
-        IU.UpdateAuraFrames()
-        -- Unregister the event once it's handled to avoid further calls
+
+        IU.loadAuraFrames()
+        -- Unregister the event once it's handled to avoid calls
         eventFrame:UnregisterEvent("ADDON_LOADED")
     end
 end)

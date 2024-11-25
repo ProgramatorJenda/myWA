@@ -2,11 +2,6 @@ IU = IU or {}
 IU.BuffFrames = IU.BuffFrames or {}
 IU.SavedPositions = IU.SavedPositions or {}
 
---Idk whats the plan for this yet
-function IU.enableEditMode()
-    
-end
-
 --Create a frame for each checked buff
 local function createDesiredAuraFrames(DesiredBuffs)
     local iconTexture = nil
@@ -87,6 +82,7 @@ local function disableFrameMovement(BuffFrames)
     end
 end
 
+-- Checks for the desired buffs in the currently active buffs on the character
 function IU.showActiveFrames(ActiveBuffs)
     for buffName, frame in pairs(IU.BuffFrames) do
         if ActiveBuffs[buffName] then  -- Check if buffName exists in ActiveBuffs
@@ -97,7 +93,6 @@ function IU.showActiveFrames(ActiveBuffs)
     end
 end
 
-
 --[[
 Gets called on every save
 Loads, creates, cleans up frames
@@ -105,4 +100,9 @@ Loads, creates, cleans up frames
 function IU.loadAuraFrames()
     createDesiredAuraFrames(IU.DesiredBuffs)
 
+end
+
+--Idk whats the plan for this yet
+function IU.enableEditMode()
+    
 end
